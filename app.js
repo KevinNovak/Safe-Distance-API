@@ -54,15 +54,14 @@ app.get('/api', function (request, response) {
 
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
-    var body = [];
+    var body = [].concat(statsQueue);
     if (request.query.newerThan !== {}) {
         var id = request.query.newerThan;
-        body = [].concat(statsQueue).filter(
+        body = body.filter(
             stat => stat.id > id
-        ).reverse();
-    } else {
-        body = [].concat(statsQueue).reverse();
+        );
     }
+    body.reverse();
     response.status(200);
     response.json(body);
 });
