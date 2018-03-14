@@ -18,8 +18,9 @@ var nextStatId = 1;
 function addStat(stat) {
     stat.id = nextStatId;
     nextStatId += 1;
-    while (statsQueue.length >= QUEUE_SIZE) {
-        statsQueue.pop();
+    console.log(statsQueue.length);
+    while (statsQueue.length > QUEUE_SIZE) {
+        statsQueue.shift();
     }
     statsQueue.push(stat);
 }
@@ -54,8 +55,8 @@ app.get('/api', function (request, response) {
 
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
-    response.status(200);
     var reversedStatsQueue = [].concat(statsQueue).reverse();
+    response.status(200);
     response.json(reversedStatsQueue);
 });
 
