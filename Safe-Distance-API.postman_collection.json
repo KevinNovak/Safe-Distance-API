@@ -1,0 +1,53 @@
+{
+	"info": {
+		"name": "Safe-Distance-API",
+		"_postman_id": "ffa79444-3ca1-490d-8ae7-3991cf40a4d7",
+		"description": "Returns model data from an RC car for use in safety assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/api/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"stats"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
