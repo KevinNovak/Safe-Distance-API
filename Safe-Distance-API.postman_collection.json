@@ -31,6 +31,30 @@
 			"response": []
 		},
 		{
+			"name": "GET /api",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{domain}}/api",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "GET /api/stats",
 			"request": {
 				"method": "GET",
@@ -112,7 +136,7 @@
 	],
 	"variable": [
 		{
-			"id": "d407b20a-1c21-4fd8-b4b5-a4b4a6b0b7bf",
+			"id": "3095d670-5f02-46d4-b514-37218bc58228",
 			"key": "domain",
 			"value": "http://localhost:3000",
 			"type": "text",

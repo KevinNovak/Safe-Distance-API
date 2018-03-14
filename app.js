@@ -34,6 +34,23 @@ app.get('/', function (request, response) {
     response.json(body);
 });
 
+app.get('/api', function (request, response) {
+    var body = {
+        links: [
+            {
+                link: "/api",
+                description: "Returns available routes." 
+            },
+            {
+                link: "/api/stats",
+                description: "GET or POST stats data." 
+            }
+        ]
+    };
+    response.status(200);
+    response.json(body);
+});
+
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
     response.status(200);
