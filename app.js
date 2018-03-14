@@ -47,6 +47,16 @@ app.get('/api/stats', function (request, response) {
     response.json(body);
 });
 
+// POST /api/stats
+app.post('/api/stats', function (request, response) {
+    var stat = request.body;
+
+    // TODO: Add stat to memory
+
+    response.status(201);
+    response.json(stat);
+});
+
 // Run app
 app.listen(PORT, function () {
     console.log(`Server running on port ${PORT}`);

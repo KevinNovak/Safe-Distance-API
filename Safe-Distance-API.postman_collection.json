@@ -10,7 +10,12 @@
 			"name": "GET /",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
 				"body": {},
 				"url": {
 					"raw": "{{domain}}/",
@@ -29,8 +34,45 @@
 			"name": "GET /api/stats",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
 				"body": {},
+				"url": {
+					"raw": "{{domain}}/api/stats",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/stats",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"speed\": 30,\r\n    \"distance\": 50,\r\n    \"time\": \"2018-03-14T01:03:28.034234Z\"\r\n}"
+				},
 				"url": {
 					"raw": "{{domain}}/api/stats",
 					"host": [
@@ -70,7 +112,7 @@
 	],
 	"variable": [
 		{
-			"id": "80ac0a5a-21e8-449e-b0c3-366688509ae3",
+			"id": "d407b20a-1c21-4fd8-b4b5-a4b4a6b0b7bf",
 			"key": "domain",
 			"value": "http://localhost:3000",
 			"type": "text",
