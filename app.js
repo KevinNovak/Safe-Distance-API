@@ -34,6 +34,7 @@ app.get('/', function (request, response) {
     response.json(body);
 });
 
+// GET /api
 app.get('/api', function (request, response) {
     var body = {
         links: [
