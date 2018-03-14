@@ -80,6 +80,38 @@
 			"response": []
 		},
 		{
+			"name": "GET /api/stats?newerThan={id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{domain}}/api/stats?newerThan=3",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "newerThan",
+							"value": "3",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "POST /api/stats",
 			"request": {
 				"method": "POST",
@@ -136,7 +168,7 @@
 	],
 	"variable": [
 		{
-			"id": "3095d670-5f02-46d4-b514-37218bc58228",
+			"id": "cae3c5a3-d21d-467e-a063-32e961b8a77a",
 			"key": "domain",
 			"value": "http://localhost:3000",
 			"type": "text",

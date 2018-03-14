@@ -54,9 +54,17 @@ app.get('/api', function (request, response) {
 
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
-    var reversedStatsQueue = [].concat(statsQueue).reverse();
+    var body = [];
+    if (request.query.newerThan !== {}) {
+        var id = request.query.newerThan;
+        body = [].concat(statsQueue).filter(
+            stat => stat.id > id
+        ).reverse();
+    } else {
+        body = [].concat(statsQueue).reverse();
+    }
     response.status(200);
-    response.json(reversedStatsQueue);
+    response.json(body);
 });
 
 // POST /api/stats
