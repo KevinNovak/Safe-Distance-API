@@ -52,17 +52,24 @@ app.get('/api', function (request, response) {
     response.json(body);
 });
 
+function containsNewerThan(query) {
+    if (query !== {}) {
+        if (!isNaN(query.newerThan)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
     var body = [].concat(statsQueue);
-    if (request.query !== {}) {
-        if (!isNaN(request.query.newerThan)) {
-            var id = request.query.newerThan;
-            // TODO: Validation
-            body = body.filter(
-                stat => stat.id > id
-            );
-        }
+    var query = request.query;
+    if (containsNewerThan(query)) {
+        var id = query.newerThan;
+        body = body.filter(
+            stat => stat.id > id
+        );
     }
     body.reverse();
     response.status(200);
