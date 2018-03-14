@@ -57,6 +57,7 @@ app.get('/api/stats', function (request, response) {
     var body = [].concat(statsQueue);
     if (request.query.newerThan !== {}) {
         var id = request.query.newerThan;
+        // TODO: Validation
         body = body.filter(
             stat => stat.id > id
         );
