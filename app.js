@@ -40,11 +40,11 @@ app.get('/api', function (request, response) {
         links: [
             {
                 link: "/api",
-                description: "Returns available routes." 
+                description: "Returns available routes."
             },
             {
                 link: "/api/stats",
-                description: "GET or POST stats data." 
+                description: "GET or POST stats data."
             }
         ]
     };
@@ -55,12 +55,14 @@ app.get('/api', function (request, response) {
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
     var body = [].concat(statsQueue);
-    if (request.query.newerThan !== {}) {
-        var id = request.query.newerThan;
-        // TODO: Validation
-        body = body.filter(
-            stat => stat.id > id
-        );
+    if (request.query !== {}) {
+        if (!isNaN(request.query.newerThan)) {
+            var id = request.query.newerThan;
+            // TODO: Validation
+            body = body.filter(
+                stat => stat.id > id
+            );
+        }
     }
     body.reverse();
     response.status(200);
