@@ -3,12 +3,26 @@ var bodyParser = require('body-parser');
 
 // Constants
 const PORT = 3000;
+const QUEUE_SIZE = 30;
 
 // Setup express
 var app = express();
 
 // Setup body-parser
 app.use(bodyParser.json());
+
+// Setup stats queue
+var statsQueue = [];
+var nextStatId = 1;
+
+function addStat(stat) {
+    stat.id = nextStatId;
+    nextStatId += 1;
+    while (statsQueue.length >= QUEUE_SIZE) {
+        statsQueue.pop();
+    }
+    statsQueue.push(stat);
+}
 
 // Routes
 // GET /
@@ -22,37 +36,16 @@ app.get('/', function (request, response) {
 
 // GET /api/stats
 app.get('/api/stats', function (request, response) {
-    // Fake it til ya make it
-    var body = [
-        {
-            id: 1,
-            speed: 30,
-            distance: 50,
-            time: "2018-03-14T01:03:28.034234Z"
-        },
-        {
-            id: 2,
-            speed: 30,
-            distance: 50,
-            time: "2018-03-14T01:03:28.034234Z"
-        },
-        {
-            id: 3,
-            speed: 30,
-            distance: 50,
-            time: "2018-03-14T01:03:28.034234Z"
-        }
-    ];
     response.status(200);
-    response.json(body);
+    var reversedStatsQueue = [].concat(statsQueue).reverse();
+    response.json(reversedStatsQueue);
 });
 
 // POST /api/stats
 app.post('/api/stats', function (request, response) {
     var stat = request.body;
-
-    // TODO: Add stat to memory
-
+    // TODO: Validation
+    addStat(stat);
     response.status(201);
     response.json(stat);
 });
