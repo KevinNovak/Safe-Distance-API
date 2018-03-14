@@ -13,12 +13,10 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/",
-					"protocol": "http",
+					"raw": "{{domain}}/",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "3000",
 					"path": [
 						""
 					]
@@ -34,12 +32,10 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/api/stats",
-					"protocol": "http",
+					"raw": "{{domain}}/api/stats",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"stats"
@@ -48,6 +44,37 @@
 				"description": ""
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "604ae754-c5cb-4a2b-b16f-8136253f5f04",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "43c810c9-e1de-4538-b767-7d3965b9fd17",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "80ac0a5a-21e8-449e-b0c3-366688509ae3",
+			"key": "domain",
+			"value": "http://localhost:3000",
+			"type": "text",
+			"description": ""
 		}
 	]
 }
