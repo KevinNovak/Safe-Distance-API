@@ -19,7 +19,7 @@ function addStat(stat) {
     stat.id = nextStatId;
     nextStatId += 1;
     console.log(statsQueue.length);
-    while (statsQueue.length > QUEUE_SIZE) {
+    while (statsQueue.length >= QUEUE_SIZE) {
         statsQueue.shift();
     }
     statsQueue.push(stat);
