@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Constants
 const PORT = 3000;
