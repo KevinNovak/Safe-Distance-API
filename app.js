@@ -1,15 +1,18 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 
 // Constants
 const PORT = 3000;
 const QUEUE_SIZE = 30;
 
 // Setup express
-var app = express();
+const app = express();
 
 // Setup body-parser
 app.use(bodyParser.json());
+
+// Setup cors
+app.use(cors());
 
 // Setup stats queue
 var statsQueue = [];
